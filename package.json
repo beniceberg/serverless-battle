@@ -1,0 +1,24 @@
+{
+  "scripts": {
+    "dev": "node --expose-gc server.js",
+    "runInBackground": "NODE_ENV=production nohup node --expose_gc --max-old-space-size=4096 server.js > ./logs/output.log &",
+    "build": "next build"
+  },
+  "devDependencies": {
+    "express": "^4.16.4",
+    "ms": "^2.1.1",
+    "next": "^8.1.0",
+    "numeral": "^2.0.6",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "socket.io": "^2.2.0",
+    "socket.io-client": "^2.2.0"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "dotenv": "^8.0.0",
+    "lodash": "^4.17.11",
+    "node-fetch": "^2.5.0",
+    "react-google-charts": "^3.0.13"
+  }
+}

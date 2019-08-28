@@ -1,0 +1,5 @@
+node_modules
+teqnation-serverless.nl.code-workspace
+.next
+.env
+/logs/output.log
