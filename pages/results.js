@@ -53,7 +53,7 @@ class Results extends Component {
     const { resultsAWS, votingStats, resultsAzure, resultsGoogle } = this.state;
     const showResults =
       !_isEmpty(resultsAWS) &&
-      // !_isEmpty(resultsAzure) &&
+      !_isEmpty(resultsAzure) &&
       !_isEmpty(resultsGoogle) &&
       !_isEmpty(votingStats);
     return (
@@ -63,7 +63,7 @@ class Results extends Component {
             votingStats={votingStats}
             resultsAWS={resultsAWS}
             resultsGoogle={resultsGoogle}
-            resultsAzure={resultsGoogle}
+            resultsAzure={resultsAzure}
           />
         )}
       </div>

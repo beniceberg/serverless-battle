@@ -1,11 +1,5 @@
 import axios from "axios";
-import {
-  awsHeaders,
-  awsUrl,
-  azureHeaders,
-  azureUrl,
-  googleUrl
-} from "./constants";
+import { awsHeaders, awsUrl, azureUrl, googleUrl } from "./constants";
 
 export const getHighest = array =>
   array.reduce((acc, el) => (el > acc ? el : acc), 0);
@@ -99,17 +93,9 @@ const castVoteAmazon = vote => {
 
 const castVoteAzure = vote => {
   axios
-    .post(
-      `${azureUrl}cast_votes`,
-      {
-        VotedFor: vote
-      }
-      // {
-      //   headers: {
-      //     authorization: azureHeaders
-      //   }
-      // }
-    )
+    .post(`${azureUrl}cast_votes`, {
+      VotedFor: vote
+    })
     .catch(err => console.error(`Error Azure: ${err}`));
 };
 
@@ -122,16 +108,15 @@ const castVoteGoogle = vote => {
 };
 
 export const sendVoteToCloud = vote => {
-  axios.all([castVoteAmazon(vote), castVoteGoogle(vote)]);
-  // axios.all([castVoteAmazon(vote), castVoteAzure(vote), castVoteGoogle(vote)]);
+  axios.all([castVoteAmazon(vote), castVoteAzure(vote), castVoteGoogle(vote)]);
 };
 
-export const getAzureResults = (results = {}) => {
-  const azureResults = {
-    total_votes: Math.round(results.total_votes * 0.83),
-    total_time: Math.round(results.total_time * 1.2),
-    total_cost: results.total_cost,
-    chart: results.chart
-  };
-  return azureResults;
-};
+// export const getAzureResults = (results = {}) => {
+//   const azureResults = {
+//     total_votes: Math.round(results.total_votes * 0.83),
+//     total_time: Math.round(results.total_time * 1.2),
+//     total_cost: results.total_cost,
+//     chart: results.chart
+//   };
+//   return azureResults;
+// };

@@ -5,9 +5,7 @@ const {
   azureApiUrl,
   googleApiUrl,
   awsAccessKey,
-  awsSecretKey,
-  azureTrace,
-  azureSubscriptionKey
+  awsSecretKey
 } = publicRuntimeConfig;
 
 export const data = [
@@ -81,16 +79,9 @@ export const awsHeaders = {
   AccessKey: awsAccessKey,
   SecretKey: awsSecretKey
 };
+
 export const awsUrl = awsApiUrl;
 
-export const azureHeaders = {
-  "Content-Type": "application/json",
-  "Ocp-Apim-Trace": azureTrace,
-  "Ocp-Apim-Subscription-Key": azureSubscriptionKey
-  // "Access-Control-Allow-Methods": "POST,OPTIONS",
-  // "Access-Control-Allow-Headers": "*",
-  // "Access-Control-Allow-Credentials": "*"
-};
 export const azureUrl = azureApiUrl;
 
 export const googleUrl = googleApiUrl;

@@ -9,7 +9,6 @@ import _isEmpty from "lodash/isEmpty";
 import Overlay from "../components/Overlay";
 import BenchmarkScreen from "../components/BenchmarkScreen";
 import ResultsScreen from "../components/ResultsScreen";
-import { getAzureResults } from "../utils";
 
 class Benchmarks extends Component {
   constructor(props) {
@@ -96,7 +95,7 @@ class Benchmarks extends Component {
 
     const shouldShowResults =
       !_isEmpty(resultsAWS) &&
-      // !_isEmpty(resultsAzure) &&
+      !_isEmpty(resultsAzure) &&
       !_isEmpty(resultsGoogle) &&
       !_isEmpty(votingStats);
     return (
@@ -113,7 +112,7 @@ class Benchmarks extends Component {
             votingStats={votingStats}
             resultsAWS={resultsAWS}
             resultsGoogle={resultsGoogle}
-            resultsAzure={getAzureResults(resultsGoogle)}
+            resultsAzure={resultsAzure}
           />
         )}
       </div>
